@@ -1,2 +1,2 @@
 # 100in100
- Transitioning careers
+ At least a hundred hours over one hundred days.
