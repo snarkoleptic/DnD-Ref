@@ -8,4 +8,7 @@ const output = (
 );
 
 
-ReactDOM.render({output},document.getElementById('root'));
+ReactDOM.render(
+    {output},
+    document.getElementById('root')
+);
