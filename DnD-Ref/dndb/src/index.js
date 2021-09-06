@@ -1,13 +1,10 @@
-const mongoose = require('mongoose');
-const express = require('express');
+import mongoose from 'mongoose';
+import express from 'express';
 const app = express();
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
-const { Classes } = require('./schemas/schemas');
-const { Races } = require('./schemas/schemas');
-const { Backgrounds } = require('./schemas/schemas');
-
+import { Classes, Races, Backgrounds } from './schemas/schemas';
 
 main().catch((err) => console.log(err));
 
