@@ -6,4 +6,4 @@ export const diceOptions = [
     {label: "D12", value : 12},
     {label: "D20", value : 20},
     {label: "D100", value: 100}
-  ]
+]
