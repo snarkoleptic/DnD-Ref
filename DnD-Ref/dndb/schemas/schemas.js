@@ -1,13 +1,13 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 //Define schema
 const racesSchema = new mongoose.Schema({
     name: String,
-    abilityScores: Object,
-    raceDesc: Object,
+    abilityScores: Array,
+    raceDesc: Array,
     size: String,
     speed: String,
-    subRaces: Object,
+    subRaces: Array,
     bookRef: String
 });
 
@@ -15,17 +15,17 @@ const classSchema = new mongoose.Schema({
     name: String,
     equipment: Array,
     hitDice: String,
-    lvlFeatures: Object,
-    maxAtLvlOne: Int32Array,
-    profs: Object,
-    spellcasting: Object,
+    lvlFeatures: Array,
+    maxAtLvlOne: Number,
+    profs: Array,
+    spellcasting: Array,
     startingGold: String,
     bookRef: String
 });
 
 const bgSchema = new mongoose.Schema({
     name: String,
-    email: String,
+    email: String
 });
 
 //Compile model, User is the Collection name

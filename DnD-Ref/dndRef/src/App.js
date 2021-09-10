@@ -4,6 +4,7 @@ import {useState} from 'react';
 import { diceOptions } from './constants';
 import DiceRoll from './components/DiceRoll';
 import RollRawStats from './components/RollRawStats';
+import { dndClasses, dndRaces } from './dataPulls';
 
 export default function App(props) {
 

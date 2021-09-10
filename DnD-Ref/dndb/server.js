@@ -1,10 +1,11 @@
-import mongoose from 'mongoose';
-import express from 'express';
+// import modules and define variables
+const express = require('express');
 const app = express();
-import dotenv from 'dotenv';
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 dotenv.config();
 
-import { Classes, Races, Backgrounds } from './schemas/schemas';
+const { Classes, Races, Backgrounds } = require('./schemas/schemas');
 
 main().catch((err) => console.log(err));
 
