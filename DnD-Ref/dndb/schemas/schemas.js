@@ -7,7 +7,7 @@ const racesSchema = new mongoose.Schema({
     raceDesc: Array,
     size: String,
     speed: String,
-    subRaces: Array,
+    subRaces: mongoose.SchemaTypes.Mixed,
     bookRef: String
 });
 
@@ -23,19 +23,20 @@ const classSchema = new mongoose.Schema({
     bookRef: String
 });
 
-const bgSchema = new mongoose.Schema({
-    name: String,
-    email: String
-});
+// const bgSchema = new mongoose.Schema({
+//     name: String,
+//     email: String
+// });
 
 //Compile model, User is the Collection name
 const Classes = mongoose.model('Classes', classSchema);
 const Races = mongoose.model('Races', racesSchema);
-const Backgrounds = mongoose.model('Backgrounds', bgSchema);
+// const Backgrounds = mongoose.model('Backgrounds', bgSchema);
 
 //Export model
 module.exports = {
     Classes,
-    Races,
-    Backgrounds
+    Races
 };
+
+    // Backgrounds

@@ -1,50 +1,46 @@
 // import modules and define variables
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-dotenv.config();
+const { Classes, Races } = require('./schemas/schemas'); // , Backgrounds
 
-const { Classes, Races, Backgrounds } = require('./schemas/schemas');
-
-main().catch((err) => console.log(err));
-
-async function main(){
-	await mongoose.connect('mongodb://localhost:27017/dnd5e');
-}
-
-const port = 5000;
+const app = express();
 
 // Middlewares
 app.use(express.json());
 
 app.get('/classes', async (req, res) =>{
-    const db_classes = await Classes.find({});
+    const classesFromDB = await Classes.find({});
     
     res.json({
-        success:true,
-        db_classes,
+        classesFromDB
     });
 });
 
 app.get('/races', async (req, res) =>{
-    const db_races = await Races.find({});
-    
+    const racesFromDB = await Races.find({});
     res.json({
-        success:true,
-        db_races,
+        racesFromDB
     });
 });
 
-app.get('/bgs', async (req, res) =>{
-    const db_backgrounds = await Backgrounds.find({});
-    
-    res.json({
-        success:true,
-        db_backgrounds,
-    });
-});
+// app.get('/bgs', async (req, res) =>{
+//     const db_backgrounds = await Backgrounds.find({});
+//     res.json({
+//         success:true,
+//         db_backgrounds,
+//     });
+// });
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});
+mongoose
+    .connect(
+        'mongodb://localhost:27017/dnd5e',
+        {
+            useNewUrlParser: true,
+        }
+    )
+    .then(() => {
+        app.listen(5000, () => console.log(`Example app listening at http://localhost:5000`));
+    })
+    .catch((e) => {
+        console.log(`Error connecting to MongoDB: `, e);
+    });

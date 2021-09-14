@@ -14,7 +14,7 @@ export default function App(props) {
 
 	const rollTimes = (
 		<input id="numOfDice" type="number" min="1" max="10" placeholder="1"
-			onBlur={() => setRollNums(document.getElementById("numOfDice").value)}
+			onBlur={(e) => setRollNums(e.target.value)}
 		></input>
 	);
 
@@ -34,17 +34,26 @@ export default function App(props) {
 		</button>
 	);
 
+	console.log(dndRaces);
+	console.log(dndClasses);
+	// const typeOfCheckRaces = typeof dndRaces;
+	// const typeOfCheckClasses = typeof dndClasses;
+
 	// Compose the page layout.
 	const layout = (
 		<div className="App">
 			{rollTimes}x {diceButtons}
-			<br />
+			<br/>
 			<p>Roll result: {rollResult}</p>
 			{rawStatsButton}
-			<br />
+			<br/>
 			{rawStats}
+			<br/>
+			{/* {typeOfCheckRaces}<br/>
+			{typeOfCheckClasses} */}
 		</div>
 	);
+
 
 	return layout; 
 }

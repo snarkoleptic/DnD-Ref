@@ -1,24 +1,23 @@
 import axios from 'axios';
-// import cheerio from 'cheerio';
 
-export const dndClasses = axios.get('http://localhost:5000/classes')
-    .then((response) => {
+const dndClasses = axios.get('http://localhost:5000/classes').then((response) => {
         //handle the success condition of all the html on the page.
-        // console.log(cheerio.load(response));
+        const classList = response;
         console.log("Success!");
-    })
-    .catch((error) => {
+        return classList;
+    }).catch((error) => {
         //handle an error
         console.log(error);
     });
 
-export const dndRaces = axios.get('http://localhost:5000/races')
-    .then((response) => {
+const dndRaces = axios.get('http://localhost:5000/races').then((response) => {
         //handle the success condition of all the html on the page.
-        // console.log(cheerio.load(response));
+        const raceList = response;
         console.log("Success!");
-    })
-    .catch((error) => {
+        return raceList;
+    }).catch((error) => {
         //handle an error
         console.log(error);
     });
+
+export {dndClasses, dndRaces}
