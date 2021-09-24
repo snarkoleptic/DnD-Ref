@@ -1,5 +1,6 @@
 // import modules and define variables
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const { Classes, Races } = require('./schemas/schemas'); // , Backgrounds
 
@@ -7,10 +8,10 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 
 app.get('/classes', async (req, res) =>{
     const classesFromDB = await Classes.find({});
-    
     res.json({
         classesFromDB
     });
