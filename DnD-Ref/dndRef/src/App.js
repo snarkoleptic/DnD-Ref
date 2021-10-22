@@ -6,6 +6,8 @@ import DiceRoll from './components/DiceRoll';
 import RollRawStats from './components/RollRawStats';
 // import { getClasses } from './classDataPull';
 // import { getRaces } from './racesDataPull';
+import { classesDB } from '../dbtest/classes';
+import { racesDB } from '../dbtest/races';
 
 export default function App(props) {
 
@@ -35,29 +37,29 @@ export default function App(props) {
 		</button>
 	);
 
-	const getRaces = fetch('http://localhost:5000/races')
-		.then((response) => {return response.json();})
-		.then(responseJSON => {
-			const races = responseJSON.map(race => race.name).join("\n");
-			console.log(responseJSON);
-			return races;
-		})
-		.catch((error) => {
-			//handle an error
-			console.log(error);
-		});
+	// const getRaces = fetch('http://localhost:5000/races')
+	// 	.then((response) => {return response.json();})
+	// 	.then(responseJSON => {
+	// 		const races = responseJSON.map(race => race.name).join("\n");
+	// 		console.log(responseJSON);
+	// 		return races;
+	// 	})
+	// 	.catch((error) => {
+	// 		//handle an error
+	// 		console.log(error);
+	// 	});
 
-	const getClasses = fetch('http://localhost:5000/classes')
-		.then((response) => {return response.json();})
-		.then(responseJSON => {
-			const classes = responseJSON.map(clasS => clasS.name).join("\n");
-			console.log(responseJSON);
-			return classes;
-		})
-		.catch((error) => {
-			//handle an error
-			console.log(error);
-		});
+	// const getClasses = fetch('http://localhost:5000/classes')
+	// 	.then((response) => {return response.json();})
+	// 	.then(responseJSON => {
+	// 		const classes = responseJSON.map(clasS => clasS.name).join("\n");
+	// 		console.log(responseJSON);
+	// 		return classes;
+	// 	})
+	// 	.catch((error) => {
+	// 		//handle an error
+	// 		console.log(error);
+	// 	});
 
 	// Compose the page layout.
 	const layout = (
@@ -69,7 +71,7 @@ export default function App(props) {
 			<br/>
 			{rawStats}
 			<br/>
-			{getRaces}
+			{racesDB}
 		</div>
 	);
 
